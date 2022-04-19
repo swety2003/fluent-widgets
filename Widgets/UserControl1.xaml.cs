@@ -28,7 +28,7 @@ namespace MyNewApp.Widgets
             this.WidgetHeight = 230;
             this.WidgetName = "课程表";
             this.Description = "小爱课程表支持";
-            this.Icon = "\ue787";
+            this.Icon = "CalendarDay24";
             this.GUID = "base.aichedule";
         }
 

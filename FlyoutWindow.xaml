@@ -9,10 +9,17 @@
         WindowStyle="None" ResizeMode="NoResize"
         xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
         Background="#80FFFFFF"
-        Title="FlyoutWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+        Title="FlyoutWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        xmlns:common="clr-namespace:WPFUI.Common;assembly=WPFUI"
+        >
 
-
-    <Grid x:Name="Container">
-
+    <Window.Resources>
+        <ContextMenu x:Key="cm">
+            <MenuItem  Icon="{x:Static common:SymbolRegular.ClosedCaption24}" Click="MenuItem_Click" Header="暂时关闭">
+            </MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid x:Name="Container" ContextMenu="{StaticResource cm}">
+        
     </Grid>
 </Window>
