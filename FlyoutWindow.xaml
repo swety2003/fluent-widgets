@@ -22,7 +22,7 @@
             <MenuItem Icon="{x:Static common:SymbolRegular.Dismiss24}" Click="MenuItem_Click_2" Header="退出程序"/>
         </ContextMenu>
     </Window.ContextMenu>
-    <Border x:Name="bd" CornerRadius="10">
+    <Border x:Name="bd" CornerRadius="10" BorderThickness="1" BorderBrush="{StaticResource ControlFillColorSecondaryBrush}">
         <Border.Style>
             <Style TargetType="Border">
                 <Setter  Property="Background" Value="{StaticResource ControlSolidFillColorDefaultBrush}"/>
