@@ -8,18 +8,24 @@
         mc:Ignorable="d" AllowsTransparency="True"
         WindowStyle="None" ResizeMode="NoResize"
         xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
-        Background="#80FFFFFF"
         Title="FlyoutWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown"
-        xmlns:common="clr-namespace:WPFUI.Common;assembly=WPFUI"
+        xmlns:common="clr-namespace:WPFUI.Common;assembly=WPFUI" MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        Background="Transparent"
         >
-
-    <Window.Resources>
-        <ContextMenu x:Key="cm">
-            <MenuItem  Icon="{x:Static common:SymbolRegular.ClosedCaption24}" Click="MenuItem_Click" Header="暂时关闭">
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem  Icon="{x:Static common:SymbolRegular.ArrowExit20}" Click="MenuItem_Click" Header="暂时关闭">
             </MenuItem>
         </ContextMenu>
-    </Window.Resources>
-    <Grid x:Name="Container" ContextMenu="{StaticResource cm}">
+    </Window.ContextMenu>
+    <Border x:Name="bd" CornerRadius="10">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Setter  Property="Background" Value="{StaticResource ControlSolidFillColorDefaultBrush}"/>
+            </Style>
+        </Border.Style>
+        <Grid x:Name="Container">
         
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

@@ -15,6 +15,21 @@
     <None Remove="Assets\Icons\Info.ico" />
     <None Remove="Assets\Icons\Personalization.ico" />
     <None Remove="Assets\Icons\Settings.ico" />
+    <None Remove="Assets\Scripts\next.vbs" />
+    <None Remove="Assets\Scripts\play.vbs" />
+    <None Remove="Assets\Scripts\previous.vbs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Scripts\next.vbs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Scripts\play.vbs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Scripts\previous.vbs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -62,10 +77,52 @@
     <Compile Update="Widgets\DigitalClock.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Widgets\MediaControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Widgets\CPUMonitor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Widgets\BatteryInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Widgets\Example.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Widgets\MemMonitor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Widgets\QuickSwitch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
     <Page Update="Widgets\DigitalClock.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\MediaControl.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\CPUMonitor.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\BatteryInfo.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\Example.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\MemMonitor.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Widgets\QuickSwitch.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

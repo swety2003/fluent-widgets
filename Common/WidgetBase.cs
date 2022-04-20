@@ -16,7 +16,7 @@ namespace MyNewApp.Common
         public string WidgetName { get; set; } = "未命名组件";
         public string Description { get; set; } = "这里是介绍";
 
-        public string Icon { get; set; } = "\uE783";
+        public string Icon { get; set; } = "PuzzlePiece24";
 
         public string GUID { get; set; } = "";
 

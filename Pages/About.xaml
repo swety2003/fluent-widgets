@@ -6,15 +6,37 @@
       xmlns:local="clr-namespace:MyNewApp.Pages" xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      
       Title="About">
 
-    <StackPanel>
-        <wpfui:CardExpander Icon="Info24" 
+    <ScrollViewer Margin="0" VerticalScrollBarVisibility="Auto">
+        <ListView BorderThickness="0" Background="Transparent">
+            <ListView.Resources>
+                <!-- 重写ListViewItem样式-->
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter Margin="0 2.5"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.Resources>
+
+            <wpfui:Badge FontSize="16" Background="#fff4ce">
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <wpfui:SymbolIcon FontSize="24" Foreground="#9d5d00" Symbol="Warning24" Margin="10"/>
+                    <TextBlock Foreground="Black" Margin="10">
+                            此版本为开发版本，稳定性欠佳，仅供测试使用。
+                    </TextBlock>
+                </StackPanel>
+            </wpfui:Badge>
+            <wpfui:CardExpander Icon="Info24" 
                             Header="详情"
                             Subtitle="关于"
-                            Margin="0 2.5"
                             >
-            <StackPanel>
+                <StackPanel>
                     <StackPanel Margin="60 10 0 10" Orientation="Horizontal">
                         <StackPanel>
                             <StackPanel.Resources>
@@ -53,16 +75,16 @@
                 </StackPanel>
 
 
-        </wpfui:CardExpander>
-        <wpfui:CardControl
+            </wpfui:CardExpander>
+            <wpfui:CardControl
                 Title="开源地址"
-                Margin="0 2.5"
                 Icon="Code24"
                 Subtitle="点击前往">
-            <wpfui:Button
+                <wpfui:Button
                     Appearance="Secondary"
                 Content="在网页打开"
                 Icon="Open24" Click="Button_Click"/>
-        </wpfui:CardControl>
-    </StackPanel>
+            </wpfui:CardControl>
+        </ListView>
+    </ScrollViewer>
 </Page>

@@ -56,7 +56,7 @@ namespace MyNewApp
             WidgetsList.widgetInstances.Where(a =>
             {
 
-                var w = a.widget.Parent as StackPanel;
+                var w = a.widget.Parent as Grid;
                 if (w == null)
                 {
                     return a.Enabled;
@@ -92,6 +92,28 @@ namespace MyNewApp
                     widget = CreateInstance(t),
                 });
             });
+
+            var cfg = JsonConvert.DeserializeObject<Dictionary<string, bool>>(SettingProvider.Get(guid));
+
+            foreach (var w in WidgetsList.widgetInstances)
+            {
+                if (cfg.Keys.Contains(w.widget.GUID))
+                {
+
+                    w.Enabled = cfg[w.widget.GUID];
+                }
+            }
+
+            var c = WidgetsList.widgetInstances.Where(a =>
+            {
+
+                return a.Enabled;
+            }).ToList().Count;
+            if (c >= 1)
+            {
+                //this.Visibility = Visibility.Hidden;
+                //this.WindowState = WindowState.Minimized;
+            }
         }
 
 

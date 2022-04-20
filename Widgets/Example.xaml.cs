@@ -19,15 +19,15 @@ namespace MyNewApp.Widgets
     /// <summary>
     /// UserControl1.xaml 的交互逻辑
     /// </summary>
-    public partial class UserControl1 : WidgetBase
+    public partial class Example : WidgetBase
     {
-        public UserControl1()
+        public Example()
         {
             InitializeComponent();
             this.WidgetWidth = 230;
             this.WidgetHeight = 230;
-            this.WidgetName = "课程表";
-            this.Description = "小爱课程表支持";
+            this.WidgetName = "开发示例";
+            this.Description = "空白小部件";
             this.Icon = "CalendarDay24";
             this.GUID = "base.aichedule";
         }

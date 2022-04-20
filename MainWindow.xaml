@@ -40,9 +40,9 @@
 
                 <Border
                     Grid.Column="0"
-                    Width="40"
-                    Height="40"
-                    CornerRadius="20"
+                    Width="100"
+                    Height="60"
+                    CornerRadius="0"
                     >
                     <Border.Background>
                         <ImageBrush ImageSource="Assets/Icons/AppIcon.png"/>
@@ -70,7 +70,13 @@
                     Content="小部件管理"
                     Image="Assets/Icons/Settings.ico"
                     Page="{x:Type pg:WManage}"
-                    Tag="processes" Cursor="Hand" />
+                    Tag="wmanage" Cursor="Hand" />
+                    <wpfui:NavigationItem
+                    Content="个性化"
+                    Image="Assets/Icons/Personalization.ico"
+                        Tag="custom"
+                    Page="{x:Type pg:Custom}"
+                    Cursor="Hand" />
                 </wpfui:NavigationFluent.Items>
                 <wpfui:NavigationFluent.Footer>
                     <wpfui:NavigationItem

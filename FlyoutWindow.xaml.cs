@@ -1,4 +1,5 @@
 ﻿using MyNewApp.Common;
+using MyNewApp.Pages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WpfApp1.Utils;
+using WPFUI.Appearance;
 using WpfWidgetDesktop.Utils;
 
 namespace MyNewApp
@@ -62,6 +64,26 @@ namespace MyNewApp
             {
                 this.ResizeMode = ResizeMode.CanResizeWithGrip;
             }
+
+
+            var othercfg = JsonConvert.DeserializeObject<Custom.CFG>(SettingProvider.Get("core.custom"));
+            if(othercfg != null)
+            {
+                if (othercfg.RoundedWindow)
+                {
+                    bd.CornerRadius = new CornerRadius(10);
+                }
+                else
+                {
+                    bd.CornerRadius = new CornerRadius(0);
+                }
+                WPFUI.Appearance.Theme.Set(
+                othercfg.ThemeType,
+                BackgroundType.Mica, true, false);
+            }
+
+
+
             this.LocationChanged += LocationChangedHandler;
 
             this.Loaded += LoadWidget;
@@ -126,6 +148,14 @@ namespace MyNewApp
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             CloseWidget();
+        }
+
+        private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            cfg.left = this.Left;
+            cfg.top = this.Top;
+            CFGS[cfg.guid] = cfg;
+            SettingProvider.SetNoSave(this.guid, CFGS);
         }
     }
 }

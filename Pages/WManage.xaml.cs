@@ -26,6 +26,7 @@ namespace MyNewApp.Pages
             InitializeComponent();
         }
     }
+
     public static class WidgetsList
     {
         public static MainWindow MainWindow { get; set; }
