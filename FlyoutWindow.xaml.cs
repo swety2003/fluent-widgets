@@ -37,6 +37,7 @@ namespace MyNewApp
             public string guid;
             public double left;
             public double top;
+            public bool TopMost;
         }
 
         private CFG cfg;
@@ -125,6 +126,7 @@ namespace MyNewApp
                     cfg = CFGS[cfg.guid];
                     this.Left = cfg.left;
                     this.Top = cfg.top;
+                    this.Topmost = cfg.TopMost;
                 }
 
                 Container.Children.Add(widget);
@@ -176,6 +178,18 @@ namespace MyNewApp
                 new MainWindow().Show();
             }
 
+        }
+
+        private void MenuItem_Click_2(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+
+        }
+
+        private void MenuItem_Click_3(object sender, RoutedEventArgs e)
+        {
+            Topmost = !Topmost;
+            cfg.TopMost = Topmost;
         }
     }
 }
