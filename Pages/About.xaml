@@ -85,6 +85,27 @@
                 Content="在网页打开"
                 Icon="Open24" Click="Button_Click"/>
             </wpfui:CardControl>
-        </ListView>
+
+            <wpfui:CardExpander Icon="Link48" 
+                            Header="关联的项目"
+                            Subtitle="项目参考/引用"
+                            >
+                <StackPanel>
+                    <wpfui:Hyperlink Content="WPF UI: A simple way to make your application written in WPF keep up with modern design trends."   Icon="Link20"  NavigateUri="https://wpfui.lepo.co/documentation/"/>
+                    <wpfui:Hyperlink Content="Json.NET: Popular high-performance JSON framework for .NET" Icon="Link20" NavigateUri="https://www.newtonsoft.com/json"/>
+                    <wpfui:Hyperlink Content="System.Management" Icon="Link20" NavigateUri="https://dotnet.microsoft.com/zh-cn/"/>
+                    <wpfui:Hyperlink Content="Snap.Genshin" Icon="Link20" NavigateUri="https://github.com/DGP-Studio/Snap.Genshin"/>
+                    <!--<wpfui:Hyperlink Content="Json.NET" Icon="Link20" NavigateUri="https://www.newtonsoft.com/json"/>-->
+
+                </StackPanel>
+
+
+            </wpfui:CardExpander>
+            <StackPanel Orientation="Horizontal">
+                <wpfui:Hyperlink Content="基于 WPF UI 制作" Icon="Link48" NavigateUri="https://www.nuget.org/packages/WPF-UI/"/>
+                <wpfui:Hyperlink Content="反馈Bug/提交建议" Icon="Bug24" NavigateUri="https://gitee.com/swetycore/fluent-widgets/issues/new"/>
+            </StackPanel>
+
+            </ListView>
     </ScrollViewer>
 </Page>

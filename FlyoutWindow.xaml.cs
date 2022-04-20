@@ -157,5 +157,25 @@ namespace MyNewApp
             CFGS[cfg.guid] = cfg;
             SettingProvider.SetNoSave(this.guid, CFGS);
         }
+
+        private void MenuItem_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+
+                if (WidgetsList.MainWindow.WindowState == WindowState.Minimized)
+                {
+                    WidgetsList.MainWindow.WindowState = WindowState.Normal;
+                }
+                WidgetsList.MainWindow.Visibility = Visibility.Visible;
+                WidgetsList.MainWindow.Topmost = true;
+                WidgetsList.MainWindow.Topmost = false;
+            }
+            catch (Exception ex)
+            {
+                new MainWindow().Show();
+            }
+
+        }
     }
 }

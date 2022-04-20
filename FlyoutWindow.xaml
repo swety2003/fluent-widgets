@@ -16,6 +16,7 @@
         <ContextMenu>
             <MenuItem  Icon="{x:Static common:SymbolRegular.ArrowExit20}" Click="MenuItem_Click" Header="暂时关闭">
             </MenuItem>
+            <MenuItem Icon="{x:Static common:SymbolRegular.Window24}" Click="MenuItem_Click_1" Header="打开设置"/>
         </ContextMenu>
     </Window.ContextMenu>
     <Border x:Name="bd" CornerRadius="10">

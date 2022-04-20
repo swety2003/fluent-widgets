@@ -38,7 +38,7 @@ namespace MyNewApp.Pages
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BasicMethods.runcmd("start https://github.com/SwetyCore/FluentWidgets");
+            BasicMethods.runcmd("start https://gitee.com/swetycore/fluent-widgets");
 
         }
     }

@@ -97,10 +97,18 @@ namespace MyNewApp
 
             foreach (var w in WidgetsList.widgetInstances)
             {
-                if (cfg.Keys.Contains(w.widget.GUID))
+                try
                 {
 
-                    w.Enabled = cfg[w.widget.GUID];
+                    if (cfg.Keys.Contains(w.widget.GUID))
+                    {
+
+                        w.Enabled = cfg[w.widget.GUID];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
                 }
             }
 
