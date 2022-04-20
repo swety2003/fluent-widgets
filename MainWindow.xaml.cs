@@ -119,7 +119,7 @@ namespace MyNewApp
             }).ToList().Count;
             if (c >= 1)
             {
-                //this.Visibility = Visibility.Hidden;
+                this.Visibility = Visibility.Hidden;
                 //this.WindowState = WindowState.Minimized;
             }
         }
@@ -127,7 +127,6 @@ namespace MyNewApp
 
         public MainWindow()
         {
-
             InitializeComponent();
             ScanWidgets();
             WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Mica);
