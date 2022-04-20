@@ -24,6 +24,7 @@ namespace MyNewApp.Pages
         public About()
         {
             InitializeComponent();
+            ver.Text = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
         private void Hyperlink_Click_1(object sender, RoutedEventArgs e)
         {
