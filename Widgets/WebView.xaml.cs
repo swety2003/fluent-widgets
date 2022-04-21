@@ -22,6 +22,8 @@ namespace MyNewApp.Widgets
     public partial class WebView : WidgetBase
     {
         FlyoutWindow wd=null;
+        private double wh;
+        private double ww;
         public WebView()
         {
             InitializeComponent();
@@ -42,7 +44,14 @@ namespace MyNewApp.Widgets
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             pop1.IsOpen = false;
-            webview.NavigateToString(tb.Text);
+            try
+            {
+                webview.CoreWebView2.Navigate(tb.Text);
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show("请输入正确的网址！(以 http:// 或者 https:// 开头）");
+            }
         }
 
         private void WidgetBase_Loaded(object sender, RoutedEventArgs e)
@@ -63,8 +72,20 @@ namespace MyNewApp.Widgets
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            wd.Width = 64;
-            wd.Height = 64;
+            ww = wd.Width;
+            wh = wd.Height;
+            wd.Width = 128;
+            wd.Height = 32;
+            normal.Visibility = Visibility.Collapsed;
+            mined.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            wd.Height = wh;
+            wd.Width = ww;
+            normal.Visibility = Visibility.Visible;
+            mined.Visibility = Visibility.Collapsed ;
         }
     }
 }
