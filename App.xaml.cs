@@ -24,22 +24,22 @@ namespace MyNewApp
         protected override void OnStartup(StartupEventArgs e)
         {
 
-            bool isNewInstance;
-            string appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
-            Mutex mtx = new Mutex(true, appName, out isNewInstance);
+            //bool isNewInstance;
+            //string appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+            //Mutex mtx = new Mutex(true, appName, out isNewInstance);
 
-            if (!isNewInstance)
-            {
-                Process[] myProcess = Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(appName));
-                if (null != myProcess.FirstOrDefault())
-                {
-                    ShowWindow(myProcess.FirstOrDefault().MainWindowHandle, 1);
-                }
-                Application.Current.Shutdown();
+            //if (!isNewInstance)
+            //{
+            //    Process[] myProcess = Process.GetProcessesByName(System.IO.Path.GetFileNameWithoutExtension(appName));
+            //    if (null != myProcess.FirstOrDefault())
+            //    {
+            //        ShowWindow(myProcess.FirstOrDefault().MainWindowHandle, 1);
+            //    }
+            //    App.Current.Shutdown();
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
                 AppDomain currentDomain = AppDomain.CurrentDomain;
                 // 当前作用域出现未捕获异常时，使用MyHandler函数响应事件
@@ -47,7 +47,7 @@ namespace MyNewApp
                 base.OnStartup(e);
                 SettingProvider.Init();
 
-            }
+            //}
 
 
 

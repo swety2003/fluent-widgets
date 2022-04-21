@@ -34,6 +34,9 @@
                 <wpfui:CardControl Icon="BorderOutside24" Title="圆角" Subtitle="小部件窗口圆角">
                     <wpfui:ToggleSwitch IsChecked="{Binding RoundedWindow}" Cursor="Hand"/>
                 </wpfui:CardControl>
+                <wpfui:CardControl Icon="BorderOutside24" Title="强制背景透明" Subtitle="强制使小部件背景透明">
+                    <wpfui:ToggleSwitch IsChecked="{Binding TransparentWindow}" Cursor="Hand"/>
+                </wpfui:CardControl>
                 <wpfui:CardControl Icon="DarkTheme24" Title="主题" Subtitle="更改控件主题">
                     <ComboBox Width="160" SelectedIndex="{Binding ThemeIndex}">
                         <ComboBoxItem Content="深色" Selected="DarkMode"/>

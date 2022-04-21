@@ -78,6 +78,11 @@ namespace MyNewApp
                 {
                     bd.CornerRadius = new CornerRadius(0);
                 }
+
+                if (othercfg.TransparentWindow)
+                {
+                    bd.Background = new SolidColorBrush(Color.FromArgb(1, 0, 0, 0));
+                }
                 WPFUI.Appearance.Theme.Set(
                 othercfg.ThemeType,
                 BackgroundType.Mica, true, false);

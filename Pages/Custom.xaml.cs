@@ -31,6 +31,8 @@ namespace MyNewApp.Pages
             public bool RoundedWindow { get; set; } = false;
             public ThemeType ThemeType { get; set; } = ThemeType.Light;
             public int ThemeIndex { get; set; } = 0;
+
+            public bool TransparentWindow { get; set; } = false;
         }
 
         private CustomVM vm;
@@ -50,6 +52,7 @@ namespace MyNewApp.Pages
                 cfg = new CFG();
             }
             vm.RoundedWindow = cfg.RoundedWindow;
+            vm.TransparentWindow = cfg.TransparentWindow;
             vm.ThemeIndex = cfg.ThemeIndex;
         }
 
@@ -89,6 +92,7 @@ namespace MyNewApp.Pages
         {
             cfg.RoundedWindow = vm.RoundedWindow;
             cfg.ThemeIndex = vm.ThemeIndex;
+            cfg.TransparentWindow = vm.TransparentWindow;   
             SettingProvider.SetNoSave(guid,cfg);
         }
     }
@@ -108,6 +112,14 @@ namespace MyNewApp.Pages
         {
             get { return _themeIndex; }
             set { _themeIndex = value; DoNotify(); }
+        }
+
+        private bool _transparent;
+
+        public bool TransparentWindow
+        {
+            get { return _transparent; }
+            set { _transparent = value; DoNotify(); }
         }
 
     }
