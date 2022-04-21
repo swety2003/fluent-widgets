@@ -27,6 +27,8 @@ namespace MyNewApp
     {
         public readonly string guid = "core.main";
 
+        public static bool isRunning=false;
+
         public Dictionary<string, bool> cfg = new Dictionary<string, bool>();
 
         public void SaveWidgetStatue()
@@ -128,7 +130,12 @@ namespace MyNewApp
         public MainWindow()
         {
             InitializeComponent();
-            ScanWidgets();
+            if (!isRunning)
+            {
+                ScanWidgets();
+                isRunning = true;
+
+            }
             WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Mica);
         }
     }
