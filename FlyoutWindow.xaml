@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyNewApp"
         LocationChanged="LocationChangedHandler"
         mc:Ignorable="d" AllowsTransparency="True"
-        WindowStyle="None" ResizeMode="NoResize"
+        WindowStyle="None" 
         xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
         Title="FlyoutWindow" Height="450" Width="800" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         xmlns:common="clr-namespace:WPFUI.Common;assembly=WPFUI" MouseLeftButtonUp="Window_MouseLeftButtonUp"

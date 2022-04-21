@@ -56,15 +56,14 @@ namespace MyNewApp
 
             //WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Acrylic);
 
+            ResizeMode = widget.WCanResize? ResizeMode.CanResizeWithGrip:ResizeMode.NoResize;
+            
 
             Height = widget.WidgetHeight + 2;
             Width = widget.WidgetWidth + 2;
             widget.action = CloseWidget;
 
-            if (widget.WCanResize)
-            {
-                this.ResizeMode = ResizeMode.CanResizeWithGrip;
-            }
+            
 
 
             var othercfg = JsonConvert.DeserializeObject<Custom.CFG>(SettingProvider.Get("core.custom"));
