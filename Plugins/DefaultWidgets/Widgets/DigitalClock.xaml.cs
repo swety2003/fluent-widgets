@@ -28,14 +28,23 @@ namespace DefaultWidgets.Widgets
         public UserControl1()
         {
             InitializeComponent();
+
+            this.WidgetWidth = 230;
+            this.WidgetHeight = 230;
+
+            this.Icon = "Clock24";
+            ;
+            this.WidgetName = "时钟";
+            this.Description = "简单的时钟";
+            this.GUID = "base.clock";
         }
 
-        public int WidgetHeight { get; set; } = 230;
-        public int WidgetWidth { get; set; } = 230;
-        public string WidgetName { get; set; } = "时钟";
-        public string Description { get; set; } = "description";
-        public string Icon { get; set; } = "Clock24";
-        public string GUID { get; set; } = "base.clock";
+        public int WidgetHeight { get; set; }
+        public int WidgetWidth { get; set; }
+        public string WidgetName { get; set; }
+        public string Description { get; set; }
+        public string Icon { get; set; }
+        public string GUID { get; set; }
         public bool WCanResize { get; set; } = false;
         public Action action { get; set; } = null;
 

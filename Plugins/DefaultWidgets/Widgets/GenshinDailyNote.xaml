@@ -1,0 +1,139 @@
+﻿<UserControl   x:Class="DefaultWidgets.Widgets.GenshinDailyNote"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
+                    d:DesignHeight="450" d:DesignWidth="800" Loaded="WidgetBase_Loaded">
+    <Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="TextBlock" x:Key="subHeader">
+                    <Setter Property="FontSize" Value="12"/>
+                    <Setter Property="Foreground" Value="{StaticResource TextFillColorSecondaryBrush}"/>
+                </Style>
+            </Grid.Resources>
+            <Border CornerRadius="10 0 0 0" Background="{StaticResource ControlFillColorDefaultBrush}" BorderBrush="{StaticResource ControlStrongFillColorDefaultBrush}" BorderThickness="0 0 0.5 0.5" >
+                <!--<controls:TableViewItem TName="每日委托" Current="{Binding RoleAndNote.Note.FinishedTaskNum}" Max="{Binding RoleAndNote.Note.TotalTaskNum}"/>-->
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="36">
+                        <StackPanel.ToolTip>
+                            <ToolTip Placement ="MousePoint">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding RoleAndNote.Note.ExtraTaskRewardDescription}"/>
+
+                                </StackPanel>
+                            </ToolTip >
+                        </StackPanel.ToolTip>
+                        <TextBlock Padding="10 5" Foreground="{StaticResource TextFillColorPrimaryBrush}"  FontSize="24" FontWeight="Bold" Text="{Binding RoleAndNote.Note.FinishedTaskNum}"/>
+                        <TextBlock FontSize="12"  Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0">/</TextBlock>
+                        <TextBlock FontSize="12"  Foreground="{StaticResource TextFillColorPrimaryBrush}"  FontWeight="Normal" Margin="0 16 0 0" Text="{Binding RoleAndNote.Note.TotalTaskNum}"/>
+
+                    </StackPanel>
+                    <TextBlock  Padding="10 5" Text="每日委托" Style="{StaticResource subHeader}"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="0" Grid.Column="1"
+                CornerRadius="0 10 0 0" Background="{StaticResource ControlFillColorDefaultBrush}" BorderBrush="{StaticResource ControlStrongFillColorDefaultBrush}" BorderThickness="0.5 0 0 0.5" >
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="36">
+
+                        <StackPanel.ToolTip>
+                            <ToolTip Placement ="MousePoint">
+                                <StackPanel>
+                                    <TextBlock>预计</TextBlock>
+                                    <TextBlock Text="{Binding RoleAndNote.Note.ResinRecoveryTargetTimeFormatted}"/>
+                                    <TextBlock>恢复。</TextBlock>
+
+                                </StackPanel>
+                            </ToolTip >
+                        </StackPanel.ToolTip>
+                        <TextBlock  Padding="10 5" Foreground="{StaticResource TextFillColorPrimaryBrush}"  FontSize="24" FontWeight="Bold" Text="{Binding RoleAndNote.Note.CurrentResin}"/>
+                        <TextBlock FontSize="12"  Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0">/</TextBlock>
+                                                  
+                        <TextBlock FontSize="12"  Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0" Text="{Binding RoleAndNote.Note.MaxResin}"/>
+
+                    </StackPanel>
+                    <TextBlock  Padding="10 5" Text="原粹树脂" Style="{StaticResource subHeader}"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="0"
+                    CornerRadius="0 0 0 0" Background="{StaticResource ControlFillColorDefaultBrush}" BorderBrush="{StaticResource ControlStrongFillColorDefaultBrush}" BorderThickness="0 0.5 0.5 0.5" >
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="36">
+
+                        <StackPanel.ToolTip>
+                            <ToolTip Placement ="MousePoint">
+                                <StackPanel>
+                                    <TextBlock>将在</TextBlock>
+                                    <TextBlock Text="{Binding RoleAndNote.Note.HomeCoinRecoveryTargetTimeFormatted}"/>
+                                    <TextBlock>后恢复。</TextBlock>
+
+                                </StackPanel>
+                            </ToolTip >
+                        </StackPanel.ToolTip>
+                        <TextBlock  Padding="10 5" Foreground="{StaticResource TextFillColorPrimaryBrush}" FontSize="24" FontWeight="Bold" Text="{Binding RoleAndNote.Note.CurrentHomeCoin}"/>
+                        <TextBlock FontSize="12"   Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0">/</TextBlock>
+                        <TextBlock FontSize="12"   Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0" Text="{Binding RoleAndNote.Note.MaxHomeCoin}"/>
+
+                    </StackPanel>
+                    <TextBlock  Padding="10 5" Text="洞天财瓮" Style="{StaticResource subHeader}"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" Grid.Column="1"
+                    CornerRadius="0 0 0 0" Background="{StaticResource ControlFillColorDefaultBrush}" BorderBrush="{StaticResource ControlStrongFillColorDefaultBrush}" BorderThickness="0.5 0.5 0 0.5" >
+
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="36">
+                        <TextBlock  Padding="10 5" Foreground="{StaticResource TextFillColorPrimaryBrush}" FontSize="24" FontWeight="Bold" Text="{Binding RoleAndNote.Note.CurrentExpeditionNum}"/>
+                        <TextBlock FontSize="12"   Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0">/</TextBlock>
+                        <TextBlock FontSize="12"   Foreground="{StaticResource TextFillColorPrimaryBrush}" FontWeight="Normal" Margin="0 16 0 0" Text="{Binding RoleAndNote.Note.MaxExpeditionNum}"/>
+
+                    </StackPanel>
+                    <TextBlock  Padding="10 5" Text="探索派遣" Style="{StaticResource subHeader}"/>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="2" Grid.ColumnSpan="3">
+                <StackPanel Orientation="Horizontal"  Background="#10000000">
+                    <TextBlock Foreground="{DynamicResource TextFillColorPrimaryBrush}" FontSize="16" VerticalAlignment="Center" Margin="10" Text="原神实时便笺"/>
+                    
+                    <wpfui:Button x:Name="btn" Margin="20 0 0 0" Icon="Edit24"
+                            Click="btn_Click" Cursor="Hand" Appearance="Transparent"/>
+                    <Popup x:Name="pop1" Width="260" Height="160"
+                           StaysOpen="False" 
+                           IsOpen="False" 
+                           AllowsTransparency="True"
+                           PopupAnimation="Fade"
+                           PlacementTarget="{Binding ElementName= btn}"
+                           Placement="Bottom"
+                           >
+                        
+                        <Border CornerRadius="10" Background="{StaticResource ControlSolidFillColorDefaultBrush}">
+                            <StackPanel Margin="10">
+                                <TextBlock FontSize="20" Foreground="{DynamicResource TextFillColorPrimaryBrush}">米游社Cookie</TextBlock>
+                                <wpfui:TextBox  x:Name="tb" FontSize="12" Margin="0 10" Height="60">
+                                    
+                                </wpfui:TextBox>
+                                <wpfui:Button Appearance="Secondary" HorizontalAlignment="Right"  Foreground="{DynamicResource TextFillColorPrimaryBrush}" Content="保存" Click="Button_Click"/>
+                            </StackPanel>
+                        </Border>
+                    </Popup>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+
+</UserControl>

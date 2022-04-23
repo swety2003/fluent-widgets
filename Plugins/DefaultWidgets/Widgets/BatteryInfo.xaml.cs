@@ -17,18 +17,25 @@ namespace DefaultWidgets.Widgets
         private DispatcherTimer dt;
         private BatteryInfoVM vm;
 
-        int IWidgetBase.WidgetHeight { get; set; } = 50;
-        int IWidgetBase.WidgetWidth { get; set; } = 230;
-        string IWidgetBase.WidgetName { get; set; } = "电量信息";
-        string IWidgetBase.Description { get; set; } = "电量信息查看";
-        string IWidgetBase.Icon { get; set; } = "BatteryCharge24";
-        string IWidgetBase.GUID { get; set; } = "base.batteryinfo";
-        bool IWidgetBase.WCanResize { get; set; } = false;
-        Action IWidgetBase.action { get; set; } = null;
+        public int WidgetHeight { get; set; }
+        public int WidgetWidth { get; set; }
+        public string WidgetName { get; set; }
+        public string Description { get; set; }
+        public string Icon { get; set; }
+        public string GUID { get; set; }
+        public bool WCanResize { get; set; } = false;
+        public Action action { get; set; } = null;
 
         public BatteryInfo()
         {
             InitializeComponent();
+            this.WidgetHeight = 50;
+            this.WidgetWidth = 230;
+
+            this.Icon = "BatteryCharge24";
+            this.WidgetName = "电池信息";
+            this.Description = "电池信息查看";
+            this.GUID = "base.batteryinfo";
         }
 
         private void WidgetBase_Loaded(object sender, RoutedEventArgs e)
