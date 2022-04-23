@@ -98,6 +98,8 @@ namespace MyNewApp
 
             LoadedPlugins plugins =loader.Load();
 
+            MyPlugin.Plugins = plugins.Plugins;
+
             foreach (var plugin in plugins.userControls)
             {
                 WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()

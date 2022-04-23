@@ -77,6 +77,12 @@
                         Tag="custom"
                     Page="{x:Type pg:Custom}"
                     Cursor="Hand" />
+                    <wpfui:NavigationItem
+                    Content="插件管理"
+                    Image="Assets/Icons/dll.ico"
+                        Tag="plugin"
+                    Page="{x:Type pg:PluginManage}"
+                    Cursor="Hand" />
                 </wpfui:NavigationFluent.Items>
                 <wpfui:NavigationFluent.Footer>
                     <wpfui:NavigationItem

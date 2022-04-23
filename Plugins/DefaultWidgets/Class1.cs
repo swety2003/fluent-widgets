@@ -5,8 +5,8 @@ namespace DefaultWidgets
 {
     public class Class1: IPlugin
     {
-        public string Name => "插件名称";
-        public string Description => "插件描述";
-        public string Author => "Author";
+        public string Name => "基础插件";
+        public string Description => "自带的小部件集合";
+        public string Author => "SwetyCore";
     }
 }

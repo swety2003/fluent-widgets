@@ -76,30 +76,6 @@ namespace MyNewApp.Pages
                 }
             }
 
-            //public bool Enabled
-            //{
-            //    get { return enabled; }
-            //    set
-            //    {
-            //        if (enabled)
-            //        {
-            //            MainWindow.RefreshWidgets();
-            //        }
-            //        else
-            //        {
-            //            if (widget.action != null)
-            //            {
-
-            //                widget.action.Invoke();
-            //            }
-            //        }
-            //        enabled = value;
-            //    }
-            //}
-
-
-
-
             public Point point { get; set; }
 
 
