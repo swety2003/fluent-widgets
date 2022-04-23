@@ -34,10 +34,10 @@ namespace MyNewApp.Pages
 
         public class WidgetInstance : NotifyBase
         {
-            private WidgetBase _widget;
+            private UserControl _widget;
 
 
-            public WidgetBase widget
+            public UserControl widget
             {
                 get { return _widget; }
                 set { _widget = value; this.DoNotify(); }
@@ -64,10 +64,12 @@ namespace MyNewApp.Pages
                     }
                     else
                     {
-                        if (widget.action != null)
+                        IWidgetBase iw = (IWidgetBase)widget;
+
+                        if (iw.action != null)
                         {
                             MainWindow.SaveWidgetStatue();
-                            widget.action.Invoke();
+                            iw.action.Invoke();
                         }
                     }
                     this.DoNotify();
@@ -111,6 +113,8 @@ namespace MyNewApp.Pages
             get { return _widgetInstances; }
             set { _widgetInstances = value; }
         }
+
+
 
     }
 

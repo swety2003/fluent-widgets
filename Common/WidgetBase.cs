@@ -7,22 +7,23 @@ using System.Windows.Controls;
 
 namespace MyNewApp.Common
 {
-    public class WidgetBase:UserControl
+    public interface IWidgetBase
     {
 
-        public int WidgetHeight { get; set; } = 210;
-        public int WidgetWidth { get; set; } = 210;
+        int WidgetHeight { get; set; }
+        int WidgetWidth { get; set; }
 
-        public string WidgetName { get; set; } = "未命名组件";
-        public string Description { get; set; } = "这里是介绍";
-
-        public string Icon { get; set; } = "PuzzlePiece24";
-
-        public string GUID { get; set; } = "";
-
-        public bool WCanResize { get; set; }=false;
+        string WidgetName { get; set; }
+        string Description { get; set; }
 
 
-        public Action action;
+        string Icon { get; set; }
+
+        string GUID { get; set; }
+
+        bool WCanResize { get; set; }
+
+
+        Action action { get; set; }
     }
 }

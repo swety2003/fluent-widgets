@@ -44,24 +44,23 @@ namespace MyNewApp
 
         public static Dictionary<string, CFG> CFGS;
 
-        private WidgetBase widget;
+        private IWidgetBase widget;
 
-        public FlyoutWindow(WidgetBase widget)
+        public FlyoutWindow(UserControl widget)
         {
             InitializeComponent();
 
-            this.widget = widget;
+            this.widget = (IWidgetBase?)widget;
 
             IntPtr hWnd = new WindowInteropHelper(GetWindow(this)).EnsureHandle();
 
-            //WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Acrylic);
 
-            ResizeMode = widget.WCanResize? ResizeMode.CanResizeWithGrip:ResizeMode.NoResize;
+            ResizeMode = this.widget.WCanResize? ResizeMode.CanResizeWithGrip:ResizeMode.NoResize;
             
 
-            Height = widget.WidgetHeight + 2;
-            Width = widget.WidgetWidth + 2;
-            widget.action = CloseWidget;
+            Height =this. widget.WidgetHeight + 2;
+            Width =this. widget.WidgetWidth + 2;
+            this.widget.action = CloseWidget;
 
             
 
@@ -101,7 +100,7 @@ namespace MyNewApp
         private void Window_Closed(object sender, EventArgs e)
         {
             WindowPos.LX.Remove(this);
-            var a = this.widget.Parent as Grid;
+            var a = (this.widget as UserControl).Parent as Grid;
             a.Children.Clear();
         }
 
@@ -133,7 +132,7 @@ namespace MyNewApp
                     this.Topmost = cfg.TopMost;
                 }
 
-                Container.Children.Add(widget);
+                Container.Children.Add(widget as UserControl);
             }
             catch (Exception ex)
             {

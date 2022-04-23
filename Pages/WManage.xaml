@@ -6,9 +6,12 @@
       xmlns:local="clr-namespace:MyNewApp.Pages"
       mc:Ignorable="d" 
     xmlns:wpfui="clr-namespace:WPFUI.Controls;assembly=WPFUI"
-      
+      xmlns:ct="clr-namespace:MyNewApp.Convertor"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="WManage">
+    <Page.Resources>
+        <ct:UserControlInfoConvertor x:Key="uict"/>
+    </Page.Resources>
     <Grid>
         <ScrollViewer Margin="0" VerticalScrollBarVisibility="Auto">
             <ListView BorderThickness="0"   ItemsSource="{x:Static local:WidgetsList.widgetInstances}" Background="Transparent">
@@ -26,7 +29,9 @@
                 </ListView.Resources>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <wpfui:CardControl Icon="{Binding widget.Icon}" Title="{Binding widget.WidgetName}" Subtitle="{Binding widget.Description}">
+                        <wpfui:CardControl Icon="{Binding widget,Converter={StaticResource uict},ConverterParameter=0}" 
+                                           Title="{Binding widget,Converter={StaticResource uict},ConverterParameter=1}" 
+                                           Subtitle="{Binding widget,Converter={StaticResource uict},ConverterParameter=2}">
                             <wpfui:ToggleSwitch IsChecked="{Binding Enabled}"/>
                         </wpfui:CardControl>
 

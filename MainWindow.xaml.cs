@@ -2,6 +2,7 @@
 using MyNewApp.Pages;
 using Newtonsoft.Json;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -17,6 +18,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfWidgetDesktop.Utils;
+using static MyNewApp.Common.PluginBase;
+using static MyNewApp.Common.PluginBase.PluglingLoader;
 
 namespace MyNewApp
 {
@@ -35,16 +38,16 @@ namespace MyNewApp
         {
             foreach (var a in WidgetsList.widgetInstances)
             {
-
-                cfg[a.widget.GUID] = a.Enabled;
+                IWidgetBase w = (IWidgetBase)a.widget;
+                cfg[w.GUID] = a.Enabled;
 
             }
             SettingProvider.SetNoSave(guid, cfg);
         }
 
-        private WidgetBase CreateInstance(Type t)
+        private UserControl CreateInstance(Type t)
         {
-            return Activator.CreateInstance(t) as WidgetBase;
+            return Activator.CreateInstance(t) as UserControl;
 
         }
 
@@ -53,26 +56,22 @@ namespace MyNewApp
 
             SaveWidgetStatue();
 
-
-
-            WidgetsList.widgetInstances.Where(a =>
+            foreach(var a in WidgetsList.widgetInstances)
             {
-
-                var w = a.widget.Parent as Grid;
-                if (w == null)
+                var w = (a.widget as UserControl).Parent as Grid;
+                if (w != null)
                 {
-                    return a.Enabled;
+                    continue;
                 }
-                else
+                else if(a.Enabled)
                 {
-
-                    return w.Children == null && a.Enabled;
+                    var fw = new FlyoutWindow(a.widget);
+                    fw.Show();
                 }
-            }).ToList().ForEach(a =>
-            {
-                var w = new FlyoutWindow(a.widget);
-                w.Show();
-            });
+
+            }
+
+
 
 
         }
@@ -85,27 +84,40 @@ namespace MyNewApp
             WidgetsList.MainWindow = this;
             WidgetsList.widgetInstances = new List<WidgetsList.WidgetInstance>();
 
-            Assembly currentAssembly = Assembly.GetExecutingAssembly();
-            currentAssembly.ExportedTypes.Where(t => t.BaseType == typeof(WidgetBase)).ToList().ForEach(t =>
+            //Assembly currentAssembly = Assembly.GetExecutingAssembly();
+            //currentAssembly.ExportedTypes.Where(t => t.BaseType == typeof(UserControl)).ToList().ForEach(t =>
+            //{
+            //    Console.WriteLine(t.Name);
+            //    WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()
+            //    {
+            //        widget = CreateInstance(t),
+            //    });
+            //});
+
+            PluglingLoader loader=new PluglingLoader();
+
+            LoadedPlugins plugins =loader.Load();
+
+            foreach (var plugin in plugins.userControls)
             {
-                Console.WriteLine(t.Name);
                 WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()
                 {
-                    widget = CreateInstance(t),
-                });
-            });
+                    widget = plugin
+                }) ;
+            }
 
             var cfg = JsonConvert.DeserializeObject<Dictionary<string, bool>>(SettingProvider.Get(guid));
 
-            foreach (var w in WidgetsList.widgetInstances)
+            foreach (var a in WidgetsList.widgetInstances)
             {
                 try
                 {
+                    IWidgetBase w = (IWidgetBase)a.widget;
 
-                    if (cfg.Keys.Contains(w.widget.GUID))
+                    if (cfg.Keys.Contains(w.GUID))
                     {
 
-                        w.Enabled = cfg[w.widget.GUID];
+                        a.Enabled = cfg[w.GUID];
                     }
                 }
                 catch (Exception ex)
@@ -134,7 +146,6 @@ namespace MyNewApp
             {
                 ScanWidgets();
                 isRunning = true;
-
             }
             WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Mica);
         }

@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
 
   </PropertyGroup>
 
@@ -16,6 +17,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Deterministic>False</Deterministic>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Plugins\**" />
+    <EmbeddedResource Remove="Plugins\**" />
+    <None Remove="Plugins\**" />
+    <Page Remove="Plugins\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Assets\Icons\148.ico" />
@@ -74,7 +82,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
+    <Folder Include="Controls\" />
     <Folder Include="Utils\" />
   </ItemGroup>
 

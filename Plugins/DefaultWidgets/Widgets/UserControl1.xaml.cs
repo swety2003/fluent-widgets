@@ -14,27 +14,25 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace MyNewApp.Widgets
+namespace DefaultWidgets.Widgets
 {
     /// <summary>
     /// UserControl1.xaml 的交互逻辑
     /// </summary>
-    public partial class Example : WidgetBase
+    public partial class UserControl1 : UserControl, IWidgetBase
     {
-        public Example()
+        public UserControl1()
         {
             InitializeComponent();
-            this.WidgetWidth = 230;
-            this.WidgetHeight = 230;
-            this.WidgetName = "开发示例";
-            this.Description = "空白小部件";
-            this.Icon = "CalendarDay24";
-            this.GUID = "base.aichedule";
         }
 
-        private void WidgetBase_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+        public int WidgetHeight { get; set; } = 230;
+        public int WidgetWidth { get; set; } = 230;
+        public string WidgetName { get; set; } = "测试";
+        public string Description { get; set; } = "description";
+        public string Icon { get; set; } = "";
+        public string GUID { get; set; } = "w.sd";
+        public bool WCanResize { get; set; } = false;
+        public Action action { get; set; } = null;
     }
 }
