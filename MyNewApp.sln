@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNewApp", "MyNewApp.csproj", "{FCAD684F-825F-45F2-B3B7-6FA3E9E68ED1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultWidgets", "Plugins\DefaultWidgets\DefaultWidgets.csproj", "{2BD1688E-EABA-4AE6-B392-C8E102E2FA23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DefaultWidgets", "Plugins\DefaultWidgets\DefaultWidgets.csproj", "{2BD1688E-EABA-4AE6-B392-C8E102E2FA23}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

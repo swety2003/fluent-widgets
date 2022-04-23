@@ -153,6 +153,7 @@ namespace MyNewApp
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             CloseWidget();
+            MenuItem_Click_1(null, null);
         }
 
         private void Window_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
