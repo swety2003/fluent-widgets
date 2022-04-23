@@ -87,12 +87,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="CoreAudioApi">
-      <HintPath>..\WpfApp1\Lib\CoreAudioApi.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Widgets\DigitalClock.xaml.cs">
       <SubType>Code</SubType>
     </Compile>

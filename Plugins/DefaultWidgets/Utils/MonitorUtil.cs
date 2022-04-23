@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfWidgetDesktop.Utils
+namespace DefaultWidgets.Utils
 {
     // from https://blog.csdn.net/a497785609/article/details/83316165
     public class SysParams

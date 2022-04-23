@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp1.Utils
+namespace DefaultWidgets.Utils
 {
     //https://blog.csdn.net/KYuruyan/article/details/107094941
     internal class SysBatteryInfo

@@ -1,23 +1,12 @@
 ﻿using MyNewApp.Common;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
-using WpfApp1.Utils;
-using static WpfApp1.Utils.SysBatteryInfo;
+using DefaultWidgets.Utils;
+using static DefaultWidgets.Utils.SysBatteryInfo;
 
-namespace MyNewApp.Widgets
+namespace DefaultWidgets.Widgets
 {
     /// <summary>
     /// SearchBox.xaml 的交互逻辑
@@ -30,8 +19,8 @@ namespace MyNewApp.Widgets
 
         int IWidgetBase.WidgetHeight { get; set; } = 50;
         int IWidgetBase.WidgetWidth { get; set; } = 230;
-        string IWidgetBase.WidgetName { get; set; } = "电池信息";
-        string IWidgetBase.Description { get; set; } = "电池信息查看";
+        string IWidgetBase.WidgetName { get; set; } = "电量信息";
+        string IWidgetBase.Description { get; set; } = "电量信息查看";
         string IWidgetBase.Icon { get; set; } = "BatteryCharge24";
         string IWidgetBase.GUID { get; set; } = "base.batteryinfo";
         bool IWidgetBase.WCanResize { get; set; } = false;
