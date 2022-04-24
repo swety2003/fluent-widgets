@@ -10,6 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\msnWeather.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\msnWeather.svg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\MyNewApp.csproj" />
   </ItemGroup>
 
@@ -17,10 +27,6 @@
     <Reference Include="CoreAudioApi">
       <HintPath>..\..\..\WpfApp1\Lib\CoreAudioApi.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Assets\Icons\" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

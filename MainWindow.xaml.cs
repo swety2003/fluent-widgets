@@ -115,7 +115,10 @@ namespace MyNewApp
                 try
                 {
                     IWidgetBase w = (IWidgetBase)a.widget;
-
+                    if (cfg == null)
+                    {
+                        continue ;
+                    }
                     if (cfg.Keys.Contains(w.GUID))
                     {
 

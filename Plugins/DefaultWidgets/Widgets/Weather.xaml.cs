@@ -61,7 +61,6 @@ namespace DefaultWidgets.Widgets
 
             try
             {
-
                 Utils.Weather.API api = new Utils.Weather.API();
                 var resp = await api.GetCurrent();
 
