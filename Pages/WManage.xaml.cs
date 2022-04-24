@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MyNewApp.Common.PluginBase;
+using static MyNewApp.Pages.WidgetsList;
 
 namespace MyNewApp.Pages
 {
@@ -24,13 +26,33 @@ namespace MyNewApp.Pages
         public WManage()
         {
             InitializeComponent();
+            wiLV.ItemsSource = widgetInstances;
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            foreach (var item in widgetInstances)
+            {
+                if(item.Plugin ==((ComboBox)sender).SelectedItem)
+                {
+                    InstancesOnDisplay.Add(item);
+                }
+            }
+            //pluginFilter.ItemsSource = InstancesOnDisplay;
+            wiLV.ItemsSource=InstancesOnDisplay;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            pluginFilter.SelectedItem = null;
+            wiLV.ItemsSource = widgetInstances;
+
         }
     }
 
     public static class WidgetsList
     {
         public static MainWindow MainWindow { get; set; }
-
 
         public class WidgetInstance : NotifyBase
         {
@@ -43,11 +65,14 @@ namespace MyNewApp.Pages
                 set { _widget = value; this.DoNotify(); }
             }
 
+            private IPlugin _plugin;
 
-            //public WidgetBase widget { get; set; }
+            public IPlugin Plugin
+            {
+                get { return _plugin; }
+                set { _plugin = value; DoNotify(); }
+            }
 
-
-            //private bool enabled;
 
             private bool _enabled;
 
@@ -81,15 +106,15 @@ namespace MyNewApp.Pages
 
         }
 
-        //public static List<WidgetInstance> widgetInstances { get; set; } = new List<WidgetInstance>();
-        private static List<WidgetInstance> _widgetInstances;
+        public static List<WidgetInstance> widgetInstances { get; set; }
 
-        public static List<WidgetInstance> widgetInstances
+        private static List<WidgetInstance> _InstancesOnDisplay=new List<WidgetInstance>();
+
+        public static List<WidgetInstance> InstancesOnDisplay
         {
-            get { return _widgetInstances; }
-            set { _widgetInstances = value; }
+            get { return _InstancesOnDisplay; }
+            set { _InstancesOnDisplay = value; }
         }
-
 
 
     }

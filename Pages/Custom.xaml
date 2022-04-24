@@ -39,8 +39,8 @@
                 </wpfui:CardControl>
                 <wpfui:CardControl Icon="DarkTheme24" Title="主题" Subtitle="更改控件主题">
                     <ComboBox Width="160" SelectedIndex="{Binding ThemeIndex}">
-                        <ComboBoxItem Content="深色" Selected="DarkMode"/>
                         <ComboBoxItem Content="浅色" Selected="LightMode"/>
+                        <ComboBoxItem Content="深色" Selected="DarkMode"/>
                     </ComboBox>
                 </wpfui:CardControl>
             </ListView>

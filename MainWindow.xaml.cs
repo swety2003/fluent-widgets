@@ -96,17 +96,33 @@ namespace MyNewApp
 
             PluglingLoader loader=new PluglingLoader();
 
-            LoadedPlugins plugins =loader.Load();
+            var plugins= loader.Load();
+            MyPlugin.Plugins = new List<IPlugin>();
 
-            MyPlugin.Plugins = plugins.Plugins;
-
-            foreach (var plugin in plugins.userControls)
+            foreach (var val in plugins)
             {
-                WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()
+                MyPlugin.Plugins.Add(val.Key);
+                foreach (var a in val.Value)
                 {
-                    widget = plugin
-                }) ;
+                    WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()
+                    {
+                        widget = a,
+                        Plugin = val.Key,
+                    });
+                }
+
             }
+            //LoadedPlugins plugins =loader.Load();
+
+            //MyPlugin.Plugins = plugins.Plugins;
+
+            //foreach (var plugin in plugins.userControls)
+            //{
+            //    WidgetsList.widgetInstances.Add(new WidgetsList.WidgetInstance()
+            //    {
+            //        widget = plugin
+            //    }) ;
+            //}
 
             var cfg = JsonConvert.DeserializeObject<Dictionary<string, bool>>(SettingProvider.Get(guid));
 
