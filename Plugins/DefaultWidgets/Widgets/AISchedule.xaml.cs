@@ -29,7 +29,7 @@ namespace DefaultWidgets.Widgets
         public int WidgetWidth { get; set; }
         public string WidgetName { get; set; }
         public string Description { get; set; }
-        public string Icon { get; set; }
+        public string Icon { get; set; } 
         public string GUID { get; set; }
         public bool WCanResize { get; set; } = false;
 
@@ -44,7 +44,7 @@ namespace DefaultWidgets.Widgets
             this.WidgetHeight = 230;
             this.WidgetName = "课程表";
             this.Description = "小爱课程表支持";
-            this.Icon = "\ue787";
+            this.Icon = "Apps24";
             this.GUID = "base.aichedule";
             targetTime = DateTime.Now;
 

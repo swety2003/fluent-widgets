@@ -17,7 +17,7 @@ namespace MyNewApp.Common
         string Description => "描述";
 
 
-        string Icon => "";
+        string Icon => "Apps24";
 
         string GUID => "example.empty";
 

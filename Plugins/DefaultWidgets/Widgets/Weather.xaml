@@ -29,8 +29,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
+            <RowDefinition />
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
@@ -49,7 +49,7 @@
         </Grid>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
             <!--<Image Margin="10" Width="56" Height="56" Source="{Binding Weather.responses[0].weather[0].current.urlIcon}"/>-->
-            <svgc:SvgViewbox Margin="10" Source="{Binding Weather.responses[0].weather[0].current.pvdrIcon,Converter={StaticResource WeatherIconConvertor}}"/>
+            <svgc:SvgViewbox Margin="10" Height="64" Source="{Binding Weather.responses[0].weather[0].current.pvdrIcon,Converter={StaticResource WeatherIconConvertor}}"/>
 
             <TextBlock FontSize="40" FontWeight="Light" Margin="0 10" Text="{Binding Weather.responses[0].weather[0].current.temp,Converter={StaticResource Str2IntConvertor}}"/>
             <TextBlock FontSize="12" Margin="0 18" Text="℃"/>

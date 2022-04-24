@@ -22,7 +22,7 @@
             <wpfui:Button Appearance="Secondary" Click="Button_Click">
                 显示全部
             </wpfui:Button>
-            <TextBlock Margin="10 5" Text="按照插件筛选: " VerticalAlignment="Center"/>
+            <TextBlock Margin="10 5" Text="按照插件筛选: " Foreground="{DynamicResource TextFillColorPrimaryBrush}" VerticalAlignment="Center"/>
             <ComboBox x:Name="pluginFilter" ItemsSource="{x:Static pg:MyPlugin.Plugins}" Width="200"
                 DisplayMemberPath="Name" 
                       SelectionChanged="ComboBox_SelectionChanged"
