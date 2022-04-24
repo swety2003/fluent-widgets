@@ -63,8 +63,8 @@ namespace DefaultWidgets.Widgets
         public void getprocessorUtility()
         {
             vm.MEMAvailable = MEMCommitedPerc.NextValue();
-
-            vm.Text = vm.MEMAvailable.ToString();
+            vm.Text = Math.Round(vm.MEMAvailable, 1).ToString() ;
+            
         }
         void dt_Tick(object sender, EventArgs e)
         {
