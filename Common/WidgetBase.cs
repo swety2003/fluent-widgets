@@ -10,19 +10,18 @@ namespace MyNewApp.Common
     public interface IWidgetBase
     {
 
-        int WidgetHeight { get; set; }
-        int WidgetWidth { get; set; }
+        int WidgetHeight => 230;
+        int WidgetWidth => 230;
 
-        string WidgetName { get; set; }
-        string Description { get; set; }
+        string WidgetName => "未命名";
+        string Description => "描述";
 
 
-        string Icon { get; set; }
+        string Icon => "";
 
-        string GUID { get; set; }
+        string GUID => "example.empty";
 
-        bool WCanResize { get; set; }
-
+        bool WCanResize => false;
 
         Action action { get; set; }
     }

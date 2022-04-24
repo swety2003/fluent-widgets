@@ -31,6 +31,7 @@ namespace MyNewApp.Pages
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            InstancesOnDisplay = new List<WidgetInstance>();
             foreach (var item in widgetInstances)
             {
                 if(item.Plugin ==((ComboBox)sender).SelectedItem)
@@ -108,7 +109,7 @@ namespace MyNewApp.Pages
 
         public static List<WidgetInstance> widgetInstances { get; set; }
 
-        private static List<WidgetInstance> _InstancesOnDisplay=new List<WidgetInstance>();
+        private static List<WidgetInstance> _InstancesOnDisplay { get; set; }
 
         public static List<WidgetInstance> InstancesOnDisplay
         {
