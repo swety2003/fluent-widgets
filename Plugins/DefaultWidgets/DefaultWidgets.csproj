@@ -10,10 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Icons\aischedule.ico" />
     <None Remove="Assets\Icons\msnWeather.svg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Icons\aischedule.ico">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Assets\Icons\msnWeather.svg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
