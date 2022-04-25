@@ -64,6 +64,7 @@ namespace MyNewApp
 
             MessageBox.Show(e.Message + "\n" + e.StackTrace, "程序崩溃了！");
             System.IO.File.WriteAllText("err.log", e.Message + e.StackTrace);
+            Environment.Exit(0);
 
         }
 

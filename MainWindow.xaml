@@ -9,6 +9,7 @@
     d:Height="600"
     d:Width="800"
       xmlns:pg="clr-namespace:MyNewApp.Pages"
+    xmlns:wpfuiCommon="clr-namespace:WPFUI.Common;assembly=WPFUI"
     
   Style="{StaticResource UiWindowRounded}"
   WindowStartupLocation="CenterScreen"
@@ -109,11 +110,24 @@
 
         </Grid>
         <wpfui:TitleBar
-            
             UseSnapLayout="True"
             Grid.Row="0"
             Grid.ColumnSpan="2"
-            Margin="42,0,0,0" />
+            Margin="42,0,0,0" >
+            <wpfui:TitleBar.NotifyIconMenu>
+                <ContextMenu>
+                    <MenuItem
+                        Header="打开设置"
+                        Icon="{x:Static wpfuiCommon:SymbolRegular.Library28}"
+                        Tag="home" />
+                    <MenuItem
+                        Click="MenuItem_Click"
+                        Header="退出程序"
+                        Icon="{x:Static wpfuiCommon:SymbolRegular.Save24}"
+                        Tag="save" />
+                </ContextMenu>
+            </wpfui:TitleBar.NotifyIconMenu>
+        </wpfui:TitleBar>
 
 
 

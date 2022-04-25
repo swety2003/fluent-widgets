@@ -170,5 +170,10 @@ namespace MyNewApp
             }
             WPFUI.Appearance.Background.Apply(this, WPFUI.Appearance.BackgroundType.Mica);
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }

@@ -29,8 +29,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="32"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition />
-            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="3">
             <Grid.ColumnDefinitions>
@@ -47,9 +47,11 @@
                 <MenuItem FontFamily="Segoe Fluent Icons" Header="&#xe72c;" Click="MenuItem_Click"/>
             </Menu>
         </Grid>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" MaxHeight="80">
             <!--<Image Margin="10" Width="56" Height="56" Source="{Binding Weather.responses[0].weather[0].current.urlIcon}"/>-->
-            <svgc:SvgViewbox Margin="10" Height="64" Source="{Binding Weather.responses[0].weather[0].current.pvdrIcon,Converter={StaticResource WeatherIconConvertor}}"/>
+            <Viewbox>
+                <svgc:SvgViewbox Margin="10"  Source="{Binding Weather.responses[0].weather[0].current.pvdrIcon,Converter={StaticResource WeatherIconConvertor}}"/>
+            </Viewbox>
 
             <TextBlock FontSize="40" FontWeight="Light" Margin="0 10" Text="{Binding Weather.responses[0].weather[0].current.temp,Converter={StaticResource Str2IntConvertor}}"/>
             <TextBlock FontSize="12" Margin="0 18" Text="℃"/>
